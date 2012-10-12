@@ -11,6 +11,8 @@ public class myRobotTester {
 	public static void main(String[] args) {
 		WebDriver webDriver = new FirefoxDriver();
 		webDriver.get("http://www.google.ca");
+		webDriver.get("http://www.alea.ca");
+		
 
 	}
 

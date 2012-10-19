@@ -1,3 +1,5 @@
 Open Browser	Firefox
 Go To	http://www.abebooks.com
 Get	One	Three
+Type	Hello World	id	gmax
+Close Browser

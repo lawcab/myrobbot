@@ -9,8 +9,10 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 import ca.mytester.robbot.domain.Action;
+import ca.mytester.robbot.helper.CommandType;
 
 public class myRobotTester {
+	public WebDriver webDriver;
 
 	/**
 	 * @param args
@@ -37,13 +39,26 @@ public class myRobotTester {
 			// TODO Auto-generated catch block
 			System.out.println("Unable to read the file "+ args[0]);
 		}
-		
-
 	}
 
 	private static void processOneLine(String line) {
 		Action action = new Action(line);
-		System.out.println(action.toString());
+				
+		if (CommandType.OPEN_BROWSER.getCommandLine().equalsIgnoreCase(
+				action.getAction())) {
+			System.out.println("Openning Browser");
+		} if (CommandType.CLOSE_BROWSER.getCommandLine().equalsIgnoreCase(
+				action.getAction())) {
+			System.out.println("Clossing Browser");
+		} if (CommandType.CLICK.getCommandLine().equalsIgnoreCase(
+				action.getAction())) {
+			System.out.println("Clicking ..."); 
+		} if (CommandType.GO_TO.getCommandLine().equalsIgnoreCase(
+				action.getAction())) {
+			System.out.println("Go to : " + action.getWhat()); 
+		} else {
+			System.out.println("Command " + action.getAction()+ " not found. Skipping Line.");
+		}
 	}
 
 }

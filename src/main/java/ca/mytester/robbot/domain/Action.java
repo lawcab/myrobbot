@@ -8,13 +8,15 @@ public class Action {
 	public Action(String line) {
 		super();
 		String[] lineSplit = line.split("\t");
-		
+		int j = lineSplit.length;
 		this.action = lineSplit[0];
-		this.what = lineSplit[1];
-		if (lineSplit.length==3) {
-			this.expression = lineSplit[2];
+		if (j > 1) {
+			this.what = lineSplit[1];
+			if (j==3) {
+				this.expression = lineSplit[2];
+			}
 		}
-		
+
 	}
 
 	public String getAction() {
